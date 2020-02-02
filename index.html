@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png"
+        href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+    <link rel="mask-icon" type=""
+        href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+        color="#111" />
+    <title>still late to these...</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Play'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+
+    <link rel='stylesheet' href='./theme.css'>
+    <script src="./pomodoro.js"></script>
+</head>
+
+<body translate="no">
+    <div class="container">
+        <!-- <div class="header">
+            <h1> Standup Timer</h1>
+        </div> -->
+        <div class="center">
+            <div class="col-half knob-wrapper" style="margin-top: 50px">
+                <input type="text" value="15" size="5" id="session-knob" />
+                <h3 style="color: #999;font-size: medium">Session Length</h3>
+            </div>
+        </div>
+        <div class="timer knob-wrapper">
+            <input type="text" value="1500" size="5" id="timer-display" />
+        </div>
+        <div class="buttons">
+            <a id="cmd-reset" class="btn btn-red"><i class="fa fa-undo"></i> Reset</a>
+            <a id="cmd-pause" class="btn btn-yellow hidden"><i class="fa fa-pause"></i> Pause</a>
+            <a id="cmd-go" class="btn btn-green"><i class="fa fa-play"></i> Start</a>
+        </div>
+        <div class="buttons-mute">
+            <a id="cmd-mute" class="btn btn-mute"><i class="fa fa-volume-up"></i></a>
+            <a id="cmd-unmute" class="btn btn-mute hidden"><i class="fa fa-volume-off"></i></a>
+        </div>
+
+        <!-- fiteness gram pacer test audio lol -->
+        <audio id="snd-endofsession" src="20meterPACER_2017.mp3"></audio>
+
+        <div id="foo" style="color:rgb(220, 32, 32);margin-top: 100px;margin-left: 20px"></div>
+    </div>
+
+
+    <div class="containertask">
+        <div class="task__head task--row">PARKING LOT TOPICS (CLICK & HOLD TO REMOVE)</div>
+        <form action="">
+            <div class="task__list">
+                <label for="task--1" class="task"><input class="task__check" type="checkbox" id="task--1" />
+                    <div class="task__field task--row"> Update Rally <button class="task__important"><i
+                                class="fa fa-check" aria-hidden="true"></i></button></div>
+                </label>
+                <label for="task--2" class="task"><input class="task__check" type="checkbox" id="task--2" />
+                    <div class="task__field task--row"> Thank Faraz for doing a thankless job :) <button
+                            class="task__important"><i class="fa fa-check" aria-hidden="true"></i></button></div>
+                </label>
+                <label for="task--3" class="task"><input class="task__check" type="checkbox" id="task--3" />
+                    <div class="task__field task--row"> Third task<button class="task__important"><i class="fa fa-check"
+                                aria-hidden="true"></i></button></div>
+                </label>
+                <label for="task--4" class="task"><input class="task__check" type="checkbox" id="task--4" />
+                    <div class="task__field task--row"> Task number four<button class="task__important"><i
+                                class="fa fa-check" aria-hidden="true"></i></button></div>
+                </label>
+            </div>
+            <div class="task--row task__footer">
+
+                <input style="font-weight: bold" class="task__add" type="text" value="+ Add New Topic">
+            </div>
+        </form>
+    </div>
+
+
+    <script
+        src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-9bf952ccbbd13c245169a0a1190323a27ce073a3d304b8c0fdf421ab22794a58.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js'></script>
+
+    <!-- main timer code -->
+    <script src="./pomodoro.js"></script>
+    <script src="./taskList.js"></script>
+
+    <script type="text/javascript" src="./rallyResponse.js"></script>
+
+
+
+
+
+    <!-- TODO: eventually add updates from rally on load/refresh from the rally api -->
+
+    <!-- <script>
+
+const Http = new XMLHttpRequest(); 
+const url='https://rally1.rallydev.com/slm/webservice/v2.x/artifact?types=hierarchicalrequirement%2Cdefect%2Cdefectsuite%2Ctestset&pagesize=25&start=1&order=Rank%20ASC%2CObjectID&query=(((Iteration.Name%20%3D%20%222020%20Sprint%2010%22)%20AND%20(Iteration.StartDate%20%3D%20%222020-01-30T08%3A00%3A00.000Z%22))%20AND%20(Iteration.EndDate%20%3D%20%222020-02-13T07%3A59%3A59.000Z%22))&fetch=Name%2Csum%3A%5BPlanEstimate%2CTaskEstimateTotal%2CTaskActualTotal%2CTaskRemainingTotal%5D&includePermissions=true&compact=true&project=%2Fproject%2F210617209860&projectScopeUp=false&projectScopeDown=true&_slug=%2Fiterationstatus';
+Http.open("GET", url);
+Http.setRequestHeader('origin', 'https://rally1.rallydev.com')
+Http.setRequestHeader('referer', 'https://rally1.rallydev.com')
+Http.withCredentials = false;
+
+Http.send();
+
+Http.onreadystatechange = (e) => {
+  console.log(Http.responseText)
+}
+    </script> -->
+
+
+</body>
+
+</html>
