@@ -1225,6 +1225,64 @@ var data = {
 	}
 }
 
+// const Http = new XMLHttpRequest(); 
+// const url='https://rally1.rallydev.com/slm/webservice/v2.x/artifact?types=hierarchicalrequirement%2Cdefect%2Cdefectsuite%2Ctestset&pagesize=25&start=1&order=Rank%20ASC%2CObjectID&query=(((Iteration.Name%20%3D%20%222020%20Sprint%2010%22)%20AND%20(Iteration.StartDate%20%3D%20%222020-01-30T08%3A00%3A00.000Z%22))%20AND%20(Iteration.EndDate%20%3D%20%222020-02-13T07%3A59%3A59.000Z%22))&fetch=PlanEstimate%2CRelease%2CIteration%2CProject%2CObjectID%2CName%2CTags%2CRank%2CFormattedID%2CScheduleState%2CBlocked%2CReady%2CScheduleStatePrefix%2CTasks%2CTaskStatus%2CTaskEstimateTotal%2CEstimate%2CTaskActualTotal%2CActuals%2CTaskRemainingTotal%2CToDo%2CState%2CC_DevOwner%2COwner%2CVersionId%2CDefects%2CTestCases%2CChildren%2CTaskIndex%2CParent%2CRequirement%2CDefectSuites%2CTestCase%2Csum%3A%5BPlanEstimate%2CTaskEstimateTotal%2CTaskActualTotal%2CTaskRemainingTotal%5D&includePermissions=true&compact=true&project=%2Fproject%2F210617209860&projectScopeUp=false&projectScopeDown=true&_slug=%2Fiterationstatus';
+// Http.open("GET", url);
+// // Http.setRequestHeader('Host', 'rally1.rallydev.com')
+// // Http.setRequestHeader('Connection', 'keep-alive')
+// Http.setRequestHeader('Pragma', 'no-cache')
+// Http.setRequestHeader('Cache-Control', 'no-cache')
+// Http.setRequestHeader('X-Trace-Id', '0d05bb0a-0675-4ab2-bcc5-5efb40a68dfe')
+// Http.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+// Http.setRequestHeader('X-Parent-Id', '05621f9b-a9bb-4459-80e8-dd90a245a0cf')
+// Http.setRequestHeader('Accept', '*/*')
+// // Http.setRequestHeader('Sec-Fetch-Site', 'same-origin')
+// // Http.setRequestHeader('Sec-Fetch-Mode', 'keep-alive')
+// // Http.setRequestHeader('Connection', 'cors')
+// // Http.setRequestHeader('Referer', 'https://rally1.rallydev.com/')
+// // Http.setRequestHeader('Accept-Encoding', 'gzip, deflate, br')
+// Http.setRequestHeader('Accept-Language', 'en-US,en;q=0.9')
+// // Http.setRequestHeader('Cookie', '__cfduid=dc78ddfd49e629094d8e8816e784179191578934923; SUBBUCKETID=60; SUBSCRIPTIONID=7060; perm-login-locale=en-US; SERVERID=95010c22f623e0fe0500024116b55a1f464fb48f; JSESSIONID=gc-app-02jh8cs3kl0ocnty65ztpobxaj.gc-app-02; ZSESSIONID=jvF2FNSgGueMKwQRJ28rojiCXqJE4apHJdSgYcXs; __cflb=0H28vdwpVg78uW6v5MnXwQL8FpHPMmZEnq9jFqJL2ZS; QSI_HistorySession=https%3A%2F%2Frally1.rallydev.com%2F%23%2F210617209860d%2Fdashboard~1580661454615')
+// Http.withCredentials = false;
+
+// Http.send();
+
+// Http.onreadystatechange = (e) => {
+//   console.log(Http.responseText)
+// }
+
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://rally1.rallydev.com/slm/webservice/v2.x/artifact?types=hierarchicalrequirement%2Cdefect%2Cdefectsuite%2Ctestset&pagesize=25&start=1&order=Rank%20ASC%2CObjectID&query=%28%28%28Iteration.Name%20%3D%20%222020%20Sprint%2010%22%29%20AND%20%28Iteration.StartDate%20%3D%20%222020-01-30T08%3A00%3A00.000Z%22%29%29%20AND%20%28Iteration.EndDate%20%3D%20%222020-02-13T07%3A59%3A59.000Z%22%29%29&fetch=PlanEstimate%2CRelease%2CIteration%2CProject%2CObjectID%2CName%2CTags%2CRank%2CFormattedID%2CScheduleState%2CBlocked%2CReady%2CScheduleStatePrefix%2CTasks%2CTaskStatus%2CTaskEstimateTotal%2CEstimate%2CTaskActualTotal%2CActuals%2CTaskRemainingTotal%2CToDo%2CState%2CC_DevOwner%2COwner%2CVersionId%2CDefects%2CTestCases%2CChildren%2CTaskIndex%2CParent%2CRequirement%2CDefectSuites%2CTestCase%2Csum%3A%5BPlanEstimate%2CTaskEstimateTotal%2CTaskActualTotal%2CTaskRemainingTotal%5D&includePermissions=true&compact=true&project=%2Fproject%2F210617209860&projectScopeUp=false&projectScopeDown=true&_slug=%2Fiterationstatus",
+	"method": "GET",
+	"headers": {
+	  "Host": "rally1.rallydev.com",
+	  "Connection": "keep-alive",
+	  "Pragma": "no-cache",
+	  "Cache-Control": "no-cache",
+	  "X-Trace-Id": "0d05bb0a-0675-4ab2-bcc5-5efb40a68dfe",
+	  "X-Requested-With": "XMLHttpRequest",
+	  "X-Parent-Id": "05621f9b-a9bb-4459-80e8-dd90a245a0cf",
+	  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36",
+	  "Accept": "*/*",
+	  "Sec-Fetch-Site": "same-origin",
+	  "Sec-Fetch-Mode": "cors",
+	  "Referer": "https://rally1.rallydev.com/",
+	  "Accept-Encoding": "gzip, deflate, br",
+	  "Accept-Language": "en-US,en;q=0.9",
+	  "Cookie": "__cfduid=dc78ddfd49e629094d8e8816e784179191578934923; SUBBUCKETID=60; SUBSCRIPTIONID=7060; perm-login-locale=en-US; SERVERID=95010c22f623e0fe0500024116b55a1f464fb48f; JSESSIONID=gc-app-02jh8cs3kl0ocnty65ztpobxaj.gc-app-02; ZSESSIONID=jvF2FNSgGueMKwQRJ28rojiCXqJE4apHJdSgYcXs; __cflb=0H28vdwpVg78uW6v5MnXwQL8FpHPMmZEnq9jFqJL2ZS; QSI_HistorySession=https%3A%2F%2Frally1.rallydev.com%2F%23%2F210617209860d%2Fdashboard~1580661454615",
+	  "cache-control": "no-cache",
+	  "Postman-Token": "304e7339-c0df-4693-94a8-ffb9d9f48893"
+	}
+  }
+  
+  $.ajax(settings).done(function (response) {
+	console.log(response);
+  });
+  
+
+
 console.log(data.QueryResult.Results)
 
 var results = data.QueryResult.Results
